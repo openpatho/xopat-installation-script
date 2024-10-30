@@ -23,7 +23,9 @@ echo \
 sudo apt-get update
 
 sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin git-all gh gedit unzip qemu-guest-agent python3-venv
-
+sudo groupadd docker
+sudo usermod -aG docker $USER
+newgrp docker
 echo "Now we'll login to github, and download the main repo"
 gh auth login
 if [ $? -ne 0 ]; then
